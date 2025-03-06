@@ -17,6 +17,8 @@ return new class extends Migration
             $table->text(column: 'description')->nullable();
             $table->integer('time_limit');
             $table->integer('attempt_limit');
+            $table->dateTime('start_time')->nullable();
+            $table->dateTime('end_time')->nullable();
             $table->boolean('is_random_question')->default(false);
             $table->float('pass_score')->default(0);
             $table->foreignId('created_by')->constrained('users')->onDelete('cascade');

@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('tests', function (Blueprint $table) {
             $table->id();
             $table->foreignId('quiz_id')->constrained('quizzes')->onDelete('cascade');
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('candidate_id')->constrained('candidates')->onDelete('cascade');
             $table->dateTime('submitted_at');
             $table->float('total_score')->nullable();
+            $table->enum('status', ['pending', 'in_progress', 'completed', 'reviewed'])->default('pending');
             $table->timestamps();
         });
     }
