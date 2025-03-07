@@ -3,6 +3,7 @@
 @section('title', 'Trang Chủ')
 
 @section('content')
+test
     <div class="wrapper">
         <div class="container-fluid">
             <!-- Page-Title -->
