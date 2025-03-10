@@ -3,9 +3,10 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', action: function () {
-    redirect()->route('login');
+Route::get('/', function () {
+    return redirect()->route('login');
 });
+
 
 Route::get('/dashboard', function () {
     return view('home');
