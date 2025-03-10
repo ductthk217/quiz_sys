@@ -10,4 +10,5 @@ return [
     'forgot_password' => 'Quên mật khẩu?',
     'dashboard' => 'Bảng điều khiển',
     'logout' => 'Đăng xuất',
+    'Profile Information' => 'Thông tin người dùng',
 ];
