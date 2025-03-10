@@ -20,6 +20,7 @@ return new class extends Migration
             $table->enum('status', ['draft', 'public', 'cancel'])->default('draft');
             $table->foreignId('created_by')->constrained('users')->onDelete('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
