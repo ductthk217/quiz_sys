@@ -15,6 +15,7 @@
     <link href="{{ asset('assets/css/metismenu.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/plugins/sweet-alert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css">
     @stack('styles')
 </head>
 <body>
@@ -40,6 +41,8 @@
     <script src="{{ asset('assets/raphael/raphael.min.js') }}"></script>
     <script src="{{ asset('assets/pages/dashboard.init.js') }}"></script>
     <script src="{{ asset('assets/js/app.js') }}"></script>
+    <script src="{{ asset('assets/plugins/sweet-alert2/sweetalert2.min.js') }}"></script>
+    <script src="{{ asset('assets/js/sweetalert2.js') }}"></script>
     @stack('scripts')
 </body>
 </html>
