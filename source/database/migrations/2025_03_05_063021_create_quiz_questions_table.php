@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('order')->nullable();
             $table->float('score');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

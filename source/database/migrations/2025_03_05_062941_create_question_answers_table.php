@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('content');
             $table->boolean('is_correct')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
