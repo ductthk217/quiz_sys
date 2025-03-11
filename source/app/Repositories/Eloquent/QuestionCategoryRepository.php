@@ -7,24 +7,35 @@ use App\Repositories\Interfaces\QuestionCategoryRepositoryInterface;
 
 class QuestionCategoryRepository implements QuestionCategoryRepositoryInterface
 {
+    protected $category;
+
+    public function __construct(QuestionCategory $category)
+    {
+        $this->category = $category;
+    }
+
     public function all()
     {
-        return QuestionCategory::all();
+        return $this->category->all();
     }
 
     public function find($id)
     {
-        return QuestionCategory::findOrFail($id);
+        return $this->category->findOrFail($id);
     }
 
     public function create(array $data)
     {
-        return QuestionCategory::create($data);
+        return $this->category->create($data);
     }
 
     public function update($id, array $data)
     {
         $category = $this->find($id);
+        if (!$category || is_array($category)) {
+            return response()->json(['error' => 'Cannot update non-existent category.'], 404);
+        }
+
         $category->update($data);
         return $category;
     }
@@ -32,6 +43,11 @@ class QuestionCategoryRepository implements QuestionCategoryRepositoryInterface
     public function delete($id)
     {
         $category = $this->find($id);
-        return $category->So();
+
+        if (!$category || is_array($category)) {
+            return response()->json(['error' => 'Cannot delete non-existent category.'], 404);
+        }
+
+        return $category->delete();
     }
 }

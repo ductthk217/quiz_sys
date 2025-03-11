@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Services\Interfaces\QuestionCategoryServiceInterface;
+use App\Http\Requests\StoreQuestionCategoryRequest;
+use App\Http\Requests\UpdateQuestionCategoryRequest;
 
 class QuestionCategoryController extends Controller
 {
@@ -17,7 +18,7 @@ class QuestionCategoryController extends Controller
 
     public function index()
     {
-        $categories = $this->service->getAllCategories();
+        $categories = $this->service->getAll();
         return view('question_categories.index', compact('categories'));
     }
 
@@ -27,37 +28,25 @@ class QuestionCategoryController extends Controller
     }
     public function edit(Request $request, $id)
     {
-        $categories = $this->service->getCategoryById($id);
+        $categories = $this->service->find($id);
         return view('question_categories.edit', compact('categories'));
     }
 
-    public function store(Request $request)
+    public function store(StoreQuestionCategoryRequest  $request)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
-        ]);
-
-        $this->service->createCategory($validated);
-
+        $this->service->create($request->validated());
         return redirect()->route('question_categories.index');
     }
 
-    public function update(Request $request, $id)
+    public function update(UpdateQuestionCategoryRequest  $request, $id)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
-        ]);
-
-        $this->service->updateCategory($id, $validated);
-
+        $this->service->update($id, $request->validated());
         return redirect()->route('question_categories.index');
     }
 
     public function destroy($id)
     {
-        $this->service->deleteCategory($id);
+        $this->service->delete($id);
         return redirect()->route('question_categories.index');
     }
 }

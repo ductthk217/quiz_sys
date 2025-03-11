@@ -2,11 +2,11 @@
 
 namespace App\Services\Interfaces;
 
-interface QuestionCategoryServiceInterface
+interface QuestionCategoryServiceInterface 
 {
-    public function getAllCategories();
-    public function getCategoryById($id);
-    public function createCategory(array $data);
-    public function updateCategory($id, array $data);
-    public function deleteCategory($id);
+    public function getAll();
+    public function find($id);
+    public function create(array $data);
+    public function update($id, array $data);
+    public function delete($id);
 }

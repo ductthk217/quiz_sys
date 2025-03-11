@@ -14,27 +14,27 @@ class QuestionCategoryService implements QuestionCategoryServiceInterface
         $this->repository = $repository;
     }
 
-    public function getAllCategories()
+    public function getAll()
     {
         return $this->repository->all();
     }
 
-    public function getCategoryById($id)
+    public function find($id)
     {
         return $this->repository->find($id);
     }
 
-    public function createCategory(array $data)
+    public function create(array $data)
     {
         return $this->repository->create($data);
     }
 
-    public function updateCategory($id, array $data)
+    public function update($id, array $data)
     {
         return $this->repository->update($id, $data);
     }
 
-    public function deleteCategory($id)
+    public function delete($id)
     {
         $category = $this->repository->find($id);  
         $category->delete();

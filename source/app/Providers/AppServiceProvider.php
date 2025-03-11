@@ -3,21 +3,13 @@
 namespace App\Providers;
 
 use App\Services\Interfaces\UserServiceInterface;
-
 use App\Services\UserService;
-
 use App\Repositories\Interfaces\UserRepositoryInterface;
-
 use App\Repositories\Eloquent\UserRepository;
-
 use Illuminate\Support\ServiceProvider;
-
 use App\Repositories\Interfaces\QuestionCategoryRepositoryInterface;
-
 use App\Repositories\Eloquent\QuestionCategoryRepository;
-
 use App\Services\Interfaces\QuestionCategoryServiceInterface;
-
 use App\Services\QuestionCategoryService;
 
 class AppServiceProvider extends ServiceProvider
@@ -34,8 +26,7 @@ class AppServiceProvider extends ServiceProvider
         // Repository
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
         $this->app->bind(QuestionCategoryRepositoryInterface::class, QuestionCategoryRepository::class);
-
-
+        
     }
 
     /**
