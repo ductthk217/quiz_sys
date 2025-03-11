@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\User\CreateUserRequest;
-use App\Services\Interfaces\UserServiceInterface;
+use App\Services\UserService;
 
 class UserController extends BaseController
 {
 
-    public function __construct(private UserServiceInterface $userServiceInterface)
+    public function __construct(private UserService $userService)
     {
     }
 
@@ -17,7 +17,7 @@ class UserController extends BaseController
      */
     public function store(CreateUserRequest $request)
     {
-        $user = $this->userServiceInterface->createUser($request->validated());
+        $user = $this->userService->createUser($request->validated());
 
         return $this->successResponse($user, "Tạo người dùng thành công");
     }
