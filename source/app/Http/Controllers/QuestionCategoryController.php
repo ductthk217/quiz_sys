@@ -26,6 +26,7 @@ class QuestionCategoryController extends Controller
     {
         return view('question_categories.create');
     }
+
     public function edit(Request $request, $id)
     {
         $categories = $this->service->find($id);

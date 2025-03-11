@@ -32,6 +32,7 @@ class QuestionCategoryRepository implements QuestionCategoryRepositoryInterface
     public function update($id, array $data)
     {
         $category = $this->find($id);
+
         if (!$category || is_array($category)) {
             return response()->json(['error' => 'Cannot update non-existent category.'], 404);
         }

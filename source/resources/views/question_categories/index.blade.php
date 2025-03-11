@@ -48,25 +48,3 @@
     </div>
 </div>
 @endsection
-
-
-@push('scripts')
-    <script>
-        $(document).ready(function() {
-            $('#categoriesTable').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: '{{ route('question_categories.index') }}',
-                columns: [
-                    { data: 'id', name: 'id' },
-                    { data: 'name', name: 'name' },
-                    { data: 'description', name: 'description' },
-                    { data: 'action', name: 'action', orderable: false, searchable: false }
-                ],
-                language: {
-                    url: "//cdn.datatables.net/plug-ins/1.10.24/i18n/Vietnamese.json"
-                }
-            });
-        });
-    </script>
-@endpush
