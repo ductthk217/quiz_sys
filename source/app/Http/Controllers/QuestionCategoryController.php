@@ -4,57 +4,60 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\QuestionCategory;
-
+use App\Services\Interfaces\QuestionCategoryServiceInterface;
 
 class QuestionCategoryController extends Controller
 {
+    protected $service;
+
+    public function __construct(QuestionCategoryServiceInterface $service)
+    {
+        $this->service = $service;
+    }
+
     public function index()
     {
-        $categories = QuestionCategory::all();
+        $categories = $this->service->getAllCategories();
         return view('question_categories.index', compact('categories'));
     }
 
-    // Form thêm mới danh mục
     public function create()
     {
         return view('question_categories.create');
     }
+    public function edit(Request $request, $id)
+    {
+        $categories = $this->service->getCategoryById($id);
+        return view('question_categories.edit', compact('categories'));
+    }
 
-    // Lưu danh mục mới
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
         ]);
 
-        QuestionCategory::create($request->all());
-        return redirect()->route('question_categories.index')->with('success', 'Thêm mới thành công');
+        $this->service->createCategory($validated);
+
+        return redirect()->route('question_categories.index');
     }
 
-    // Form chỉnh sửa danh mục
-    public function edit(QuestionCategory $questionCategory)
+    public function update(Request $request, $id)
     {
-        return view('question_categories.edit', compact('questionCategory'));
-    }
-
-    // Cập nhật danh mục
-    public function update(Request $request, QuestionCategory $questionCategory)
-    {
-        $request->validate([
+        $validated = $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
         ]);
 
-        $questionCategory->update($request->all());
-        return redirect()->route('question_categories.index')->with('success', 'Cập nhật thành công');
+        $this->service->updateCategory($id, $validated);
+
+        return redirect()->route('question_categories.index');
     }
 
-    // Xóa danh mục
-    public function destroy(QuestionCategory $questionCategory)
+    public function destroy($id)
     {
-        $questionCategory->delete();
-        return redirect()->route('question_categories.index')->with('success', 'Xóa thành công');
+        $this->service->deleteCategory($id);
+        return redirect()->route('question_categories.index');
     }
 }

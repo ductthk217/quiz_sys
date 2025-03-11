@@ -3,15 +3,19 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 use Illuminate\Database\Eloquent\Model;
+
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class QuestionCategory extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
-    // Các cột được phép mass-assign
     protected $fillable = [
         'name', 
         'description',
     ];
+
+    protected $dates = ['deleted_at'];
 }
