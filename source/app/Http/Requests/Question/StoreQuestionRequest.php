@@ -3,8 +3,6 @@
 namespace App\Http\Requests\Question;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Contracts\Validation\Validator;
-use Illuminate\Http\Exceptions\HttpResponseException;
 
 class StoreQuestionRequest extends FormRequest
 {
@@ -21,7 +19,6 @@ class StoreQuestionRequest extends FormRequest
             'score' => 'nullable|numeric|min:0.1|max:10',
             'type' => 'required|in:choice,essay',
             'status' => 'required|in:draft,public,cancel',
-            'created_by' => 'required|exists:users,id',
         ];
     }
 
@@ -39,8 +36,6 @@ class StoreQuestionRequest extends FormRequest
             'type.in' => 'Loại câu hỏi không hợp lệ.',
             'status.required' => 'Trạng thái là bắt buộc.',
             'status.in' => 'Trạng thái không hợp lệ.',
-            'created_by.required' => 'Người tạo là bắt buộc.',
-            'created_by.exists' => 'Người tạo không hợp lệ.',
         ];
     }
 }
