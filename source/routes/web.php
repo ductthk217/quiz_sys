@@ -16,6 +16,8 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     // Question
     Route::post('/question', [QuestionController::class, 'store'])->name('question.store');
+    Route::get('/question/create', [QuestionController::class, 'create'])->name('question.create');
+
 
     Route::get('/profile/{user}', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

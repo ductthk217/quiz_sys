@@ -22,8 +22,23 @@ class QuestionService
      * @param array $data
      * @return Question
      */
-    public function createQuestion(array $data): Question
+    public function createQuestion(array $data): ?Question
     {
-        return $this->questionRepository->create($data);
+        try {
+            return $this->questionRepository->create($data);
+        } catch (Exception $e) {
+            Log::error('Error: ' . $e->getMessage());
+            return null;
+        }
+    }
+
+    public function getCategoryQuestion()
+    {
+        try {
+            return $this->questionRepository->getCategoryQuestion();
+        } catch (Exception $e) {
+            Log::error('Error: ' . $e->getMessage());
+            return [];
+        }
     }
 }
