@@ -22,7 +22,9 @@ class AppServiceProvider extends ServiceProvider
     {
         // Service
         $this->app->bind(UserServiceInterface::class, UserService::class);
-        $this->app->bind(CandidateServiceInterface::class, CandidateService::class);
+        $this->app->bind(CandidateService::class, function ($app) {
+            return new CandidateService($app->make(CandidateRepositoryInterface::class));
+        });
 
         // Repository
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);

@@ -1,9 +1,11 @@
 <?php
+
 namespace App\Repositories\Eloquent;
 
 use Illuminate\Support\Arr;
 
-abstract class BaseRepository{
+abstract class BaseRepository
+{
     /**
      * @var \Illuminate\Database\Eloquent\Model
      */
@@ -25,14 +27,16 @@ abstract class BaseRepository{
     /**
      * Set model
      */
-    public function setModel(){
-        $this->_model = app()-> make($this->getModel());
+    public function setModel()
+    {
+        $this->_model = app()->make($this->getModel());
     }
     /**
      * Get All
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
-    public function getAll(){
+    public function getAll()
+    {
         return $this->_model->all();
     }
 
@@ -41,7 +45,8 @@ abstract class BaseRepository{
      * @param $id
      * @return mixed
      */
-    public function find($id){
+    public function find($id)
+    {
         $result = $this->_model->find($id);
         return $result;
     }
@@ -51,33 +56,40 @@ abstract class BaseRepository{
      * @param array $attributes
      * @return mixed
      */
-    public function create(array $attributes){
+    public function create(array $attributes)
+    {
+        // return $this->_model->create($attributes);
+        if($this->_model->where('email', $attributes['email'])->exists()){
+            throw new \Exception('Email đã tồn tại trong hệ thống!');
+        }
         return $this->_model->create($attributes);
     }
-     /**
+    /**
      * Update
      * @param $id
      * @param array $attributes
      * @return bool|mixed
      */
-    public function update($id, array $attributes){
+    public function update($id, array $attributes)
+    {
         $result = $this->find($id);
-        if($result){
+        if ($result) {
             $result->update($attributes);
             return $result;
         }
         return false;
     }
 
-     /**
+    /**
      * Delete
      *
      * @param $id
      * @return bool
      */
-    public function delete($id){
+    public function delete($id)
+    {
         $result = $this->_model->find($id);
-        if($result){
+        if ($result) {
             $result->delete();
             return true;
         }

@@ -16,13 +16,21 @@ class CandidateService implements CandidateServiceInterface
     }
     public function create(array $data): Candidate
     {
-        return $this->candidateRepository->create($data);
+        try {
+            return $this->candidateRepository->create($data);
+        } catch (\Exception $e) {
+            throw new \Exception('Email đã tồn tại!'); // Ném lỗi để Controller bắt
+        }
     }
-    public function getAll(): Collection{
-        return $this->candidateRepository->findAll();
+
+
+    public function getAll(): Collection
+    {
+        return $this->candidateRepository->getAll();
     }
-    public function getById($id): ?Candidate{
-        return $this->candidateRepository->findById($id) ?? null;
+    public function getById($id): ?Candidate
+    {
+        return $this->candidateRepository->find($id) ?? null;
     }
     public function update($id, array $data): ?Candidate
     {

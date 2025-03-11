@@ -5,20 +5,20 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Candidate\CandidateRequest;
 use App\Repositories\Interfaces\CandidateRepositoryInterface;
-use App\Services\Interfaces\CandidateServiceInterface;
+use App\Services\CandidateService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class CandidateController extends Controller
 {
-    private $candidateServiceInterface;
-    public function __construct(CandidateServiceInterface $candidateServiceInterface)
+    private $candidateService;
+    public function __construct(CandidateService $candidateServiceInterface)
     {
-        $this->candidateServiceInterface = $candidateServiceInterface;
+        $this->candidateService = $candidateServiceInterface;
     }
     public function index()
     {
-        $candidate = $this->candidateServiceInterface->getAll();
+        $candidate = $this->candidateService->getAll();
         return view('candidates.list')->with('candidate', $candidate);
     }
     public function create()
@@ -29,7 +29,7 @@ class CandidateController extends Controller
     {
         $validatedData = $request->validated();
 
-        $candidate = $this->candidateServiceInterface->create($validatedData);
+        $candidate = $this->candidateService->create($validatedData);
 
         if ($candidate) {
             return redirect()->back()->with('success', 'Candidate added successfully!');
@@ -37,20 +37,20 @@ class CandidateController extends Controller
     }
     public function edit($id)
     {
-        $candidate = $this->candidateServiceInterface->getById($id);
+        $candidate = $this->candidateService->getById($id);
         return view('candidates.edit')->with('candidate', $candidate);
     }
     public function update(CandidateRequest $request, $id)
     {
         $validatedData = $request->validated();
-        $candidate = $this->candidateServiceInterface->update($id, $validatedData);
+        $candidate = $this->candidateService->update($id, $validatedData);
         if ($candidate) {
             return redirect()->route('candidates.index')->with('success', 'Candidate updated successfully!');
         }
         return redirect()->back()->with('info', 'No changes detected!');
     }
     public function destroy($id){
-        $candidate = $this->candidateServiceInterface->delete($id);
+        $candidate = $this->candidateService->delete($id);
         if($candidate){
             return redirect()->route('candidates.index')->with('success', 'Candidate deleted successfully!');
         }
