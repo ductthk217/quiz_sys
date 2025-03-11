@@ -4,10 +4,9 @@ namespace App\Services;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use App\Services\Interfaces\UserServiceInterface;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 
-class UserService implements UserServiceInterface
+class UserService
 {
     protected $userRepository;
 
