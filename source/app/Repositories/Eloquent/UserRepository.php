@@ -7,8 +7,8 @@ use App\Repositories\Interfaces\UserRepositoryInterface;
 
 class UserRepository extends BaseRepository implements UserRepositoryInterface
 {
-    public function getModel()
+    public function __construct(User $model)
     {
-        return User::class;
+        parent::__construct($model);
     }
 }
