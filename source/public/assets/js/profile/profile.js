@@ -4,69 +4,75 @@ async function updateProfile(e) {
         name: $('#name').val(),
         email: $('#email').val(),
     };
-    let result = await sendRequest(`${window.location.origin}/profile`, 'PATCH', data);
-    if (result.status == 200) {
+
+    $('.error-span').text('');
+
+    try {
+        let result = await sendRequest(`${window.location.origin}/profile`, 'PATCH', data);
         showNotification({
             type: 'success',
-            title: 'Success',
-            text: result.message
-        })
-    } else {
-        showNotification({
-            text: result.message
-        })
+            title: 'Thành công',
+            text: result.message || 'Cập nhật thành công!',
+        });
+    } catch (error) {
+
+        if (error.status === 422) {
+            Object.entries(error.errors || {}).forEach(([key, messages]) => {
+                $('#error-' + key).text(messages.join("\n")); 
+            });
+        } else {
+            showNotification({
+                type: 'error',
+                title: 'Lỗi',
+                text: error.message?.text || 'Có lỗi xảy ra, vui lòng thử lại.',
+            });
+        }
     }
 }
+
 async function updatePassword(e) {
     e.preventDefault();
 
-    if ($('#update_password_password').val() != $('#update_password_password_confirmation').val()) {
-        showNotification({
-            message: 'Passwords do not match.'
-        })
+    // Xóa thông báo lỗi cũ
+    $('.error-span').text('');
+
+    // Kiểm tra xác nhận mật khẩu trước khi gửi request
+    if ($('#update_password_password').val() !== $('#update_password_password_confirmation').val()) {
+        $('#error-new_password_confirmation').text('Mật khẩu không trùng khớp.');
         return;
     }
+
     let data = {
         current_password: $('#update_password_current_password').val(),
-        password: $('#update_password_password').val(),
-        password_confirmation : $('#update_password_password_confirmation').val(),
+        new_password: $('#update_password_password').val(),
+        new_password_confirmation: $('#update_password_password_confirmation').val(),
     };
-    let result = await sendRequest(`${window.location.origin}/password`, 'put', data);
-    if (result.status == 200) {
-        $('#update_password_current_password').val(''),
-        $('#update_password_password').val(''),
-        $('#update_password_password_confirmation').val(''),
+
+    try {
+        let result = await sendRequest(`${window.location.origin}/password`, 'PUT', data);
+
+        // Xóa input sau khi đổi mật khẩu thành công
+        $('#update_password_current_password').val('');
+        $('#update_password_password').val('');
+        $('#update_password_password_confirmation').val('');
+
         showNotification({
             type: 'success',
-            title: 'Success',
-            message: result.message
-        })
-    } else {
-        showNotification({
-            type: 'warning',
-            text: result.message
-        })
-    }
-}
-async function deleteAccount(e) {
-    e.preventDefault();
-
-    if ($('#update_password_password').val() != $('#update_password_password_confirmation').val()) {
-        showNotification({
-            message: 'Passwords do not match.'
-        })
-        return;
-    }
-    let data = {
-        password: $('#password_delete').val(),
-    };
-    let result = await sendRequest(`${window.location.origin}/profile`, 'delete', data);
-    if (result.status == 200) {
-        // window.location.href = `${window.location.origin}`;
-    } else {
-        showNotification({
-            type: 'warning',
-            text: result.message
-        })
+            title: 'Thành công',
+            text: result.message || 'Mật khẩu đã được cập nhật!',
+        });
+    } catch (error) {
+        if (error.status === 422) {
+            // Xử lý lỗi validation từ Laravel
+            Object.entries(error.errors || {}).forEach(([key, messages]) => {
+                $('#error-' + key).text(messages.join("\n"));
+            });
+        } else {
+            showNotification({
+                type: 'error',
+                title: 'Lỗi',
+                text: error.message?.text || 'Có lỗi xảy ra, vui lòng thử lại.',
+            });
+        }
     }
 }

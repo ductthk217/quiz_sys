@@ -34,12 +34,6 @@
                             @include('profile.partials.update-password-form')
                         </div>
                     </div>
-        
-                    <div class="p-4 rounded my-5 shadow block ">
-                        <div class="max-w-xl">
-                            @include('profile.partials.delete-user-form')
-                        </div>
-                    </div>
                 </div>
             </div>
 

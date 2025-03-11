@@ -17,7 +17,7 @@
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <form method="post" action="{{ route('profile.destroy') }}" class="p-6">
+                <form method="post" onsubmit="deleteAccount(event)" class="p-6">
 
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Xóa tài khoản</h5>

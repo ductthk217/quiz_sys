@@ -124,12 +124,13 @@ function sendRequest(_url, method, data, is_form_data = false) {
                     if (error.status == 412) {
                         // location.reload();
                     }
-                    if (error.status != 422) {
+                    if (error.status == 422) {
                         return reject({
-                            status: 500,
+                            status: 422,
+                            errors: error.responseJSON.errors || {},
                             message: {
-                                title: 'Đã xảy ra lỗi!',
-                                text: 'Lỗi không xác định, hãy thông báo với chúng tôi để khắc phục sớm nhất có thể!',
+                                title: 'Lỗi xác thực!',
+                                text: 'Dữ liệu không hợp lệ, hãy kiểm tra lại.',
                                 icon: 'error',
                             }
                         });

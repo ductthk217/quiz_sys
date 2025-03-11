@@ -18,7 +18,7 @@
             <div class="col-sm-7">
                 <input id="update_password_current_password" name="update_password_current_password" type="password"
                     class="form-control mt-1 block w-full" autocomplete="current-password">
-                <x-input-error :messages="$errors->updatePassword->get('current_password')" class="mt-2" />
+                    <span id="error-current_password" class="mt-2 error-span" ></span>
             </div>
         </div>
 
@@ -27,7 +27,8 @@
             <div class="col-sm-7">
                 <input id="update_password_password" name="update_password_password" type="password"
                     class="form-control mt-1 block w-full" autocomplete="new-password">
-                <x-input-error :messages="$errors->updatePassword->get('password')" class="mt-2" />
+                    <span id="error-new_password" class="mt-2 error-span" ></span>
+
             </div>
         </div>
 
@@ -37,7 +38,8 @@
             <div class="col-sm-7">
                 <input id="update_password_password_confirmation" name="update_password_password_confirmation"
                     type="password" class="form-control mt-1 block w-full" autocomplete="new-password">
-                <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" class="mt-2" />
+                    <span id="error-new_password_confirmation" class="mt-2 error-span" ></span>
+
             </div>
         </div>
 

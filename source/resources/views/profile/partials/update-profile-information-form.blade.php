@@ -20,7 +20,7 @@
             <label for="name" class="col-sm-12 col-form-label">{{ __('Name') }}</label>
             <div class="col-sm-7">
                 <input id="name" name="name" type="text" class="form-control mt-1 block w-full" autocomplete="name"  value="{{ old('name', $user->name) }}">
-                <x-input-error :messages="$errors->updatePassword->get('name')" class="mt-2" />
+                <span id="error-name" class="mt-2 error-span" ></span>
             </div>
         </div>
 
@@ -29,7 +29,7 @@
                 <label for="email" class="col-sm-12 col-form-label">{{ __('Email') }}</label>
                 <div class="col-sm-7">
                     <input id="email" name="email" type="email" class="form-control mt-1 block w-full" autocomplete="username" value="{{ old('email', $user->email) }}">
-                    <x-input-error :messages="$errors->updatePassword->get('email')" class="mt-2" />
+                    <span id="error-email" class="mt-2 error-span" ></span>
                 </div>
             </div>
 
