@@ -2,35 +2,16 @@
 
 namespace App\Repositories\Eloquent;
 
-abstract class BaseRepository
-{
-    /**
-     * @var \Illuminate\Database\Eloquent\Model
-     */
-    protected $_model;
+use App\Repositories\Interfaces\BaseRepositoryInterface;
+use Illuminate\Database\Eloquent\Model;
 
+abstract class BaseRepository implements BaseRepositoryInterface
+{
     /**
      * EloquentRepository constructor.
      */
-    public function __construct()
+    public function __construct(protected Model $model)
     {
-        $this->setModel();
-    }
-
-    /**
-     * get model
-     * @return string
-     */
-    abstract public function getModel();
-
-    /**
-     * Set model
-     */
-    public function setModel()
-    {
-        $this->_model = app()->make(
-            $this->getModel()
-        );
     }
 
     /**
@@ -39,7 +20,7 @@ abstract class BaseRepository
      */
     public function getAll()
     {
-        return $this->_model->all();
+        return $this->model->all();
     }
 
     /**
@@ -49,7 +30,7 @@ abstract class BaseRepository
      */
     public function find($id)
     {
-        $result = $this->_model->find($id);
+        $result = $this->model->find($id);
         return $result;
     }
 
@@ -60,7 +41,7 @@ abstract class BaseRepository
      */
     public function create(array $attributes)
     {
-        return $this->_model->create($attributes);
+        return $this->model->create($attributes);
     }
 
     /**
