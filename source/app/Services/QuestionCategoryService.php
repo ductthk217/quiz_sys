@@ -3,9 +3,8 @@
 namespace App\Services;
 
 use App\Repositories\Interfaces\QuestionCategoryRepositoryInterface;
-use App\Services\Interfaces\QuestionCategoryServiceInterface;
 
-class QuestionCategoryService implements QuestionCategoryServiceInterface
+class QuestionCategoryService 
 {
     protected $repository;
 
@@ -16,7 +15,7 @@ class QuestionCategoryService implements QuestionCategoryServiceInterface
 
     public function getAll()
     {
-        return $this->repository->all();
+        return $this->repository->getAll();
     }
 
     public function find($id)

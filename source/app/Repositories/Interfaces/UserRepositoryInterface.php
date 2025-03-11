@@ -2,7 +2,8 @@
 
 namespace App\Repositories\Interfaces;
 
-use App\Services\Interfaces\BaseRepositoryInterface;
+use App\Repositories\Interfaces\BaseRepositoryInterface;
+
 interface UserRepositoryInterface extends BaseRepositoryInterface
 {
 

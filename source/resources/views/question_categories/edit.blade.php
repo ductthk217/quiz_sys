@@ -31,8 +31,7 @@
                             <!-- Form -->
                             <form action="{{ route('question_categories.update', $categories->id) }}" method="POST">
                             @csrf
-                            @method('PUT')
-
+                            @method('PATCH')
                                 <div class="form-group">
                                     <label for="name">Tên danh mục:</label>
                                     <input type="text" name="name" id="name" class="form-control" value="{{ $categories->name }}" placeholder="Nhập tên danh mục" required>

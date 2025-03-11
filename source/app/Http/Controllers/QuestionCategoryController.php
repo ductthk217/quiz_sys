@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Services\Interfaces\QuestionCategoryServiceInterface;
+use App\Services\QuestionCategoryService;
 use App\Http\Requests\StoreQuestionCategoryRequest;
 use App\Http\Requests\UpdateQuestionCategoryRequest;
 
@@ -11,7 +11,7 @@ class QuestionCategoryController extends Controller
 {
     protected $service;
 
-    public function __construct(QuestionCategoryServiceInterface $service)
+    public function __construct(QuestionCategoryService $service)
     {
         $this->service = $service;
     }
