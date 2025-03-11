@@ -5,6 +5,8 @@ use App\Services\Interfaces\UserServiceInterface;
 use App\Services\UserService;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use App\Repositories\Eloquent\UserRepository;
+use App\Repositories\Interfaces\QuestionRepositoryInterface;
+use App\Repositories\Eloquent\QuestionRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
 
         // Repository
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
+        $this->app->bind(QuestionRepositoryInterface::class, QuestionRepository::class);
     }
 
     /**
