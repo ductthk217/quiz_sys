@@ -149,8 +149,20 @@
                     <!-- Navigation Menu-->
                     <ul class="navigation-menu">
 
-                        <li class="has-submenu">
+                        <li class="has-submenu">    
                             <a href="index.html"><i class="icon-accelerator"></i> Dashboard</a>
+                        </li>
+
+                        <li class="has-submenu">
+                            <a href="#"><i class="icon-pencil-ruler"></i> Candidates <i class="mdi mdi-chevron-down mdi-drop"></i></a>
+                            <ul class="submenu megamenu">
+                                <li>
+                                    <ul>
+                                        <li><a href="{{ route('candidates.create')}}">Add Candidates</a></li>
+                                        <li><a href="{{ route('candidates.index')}}">Candidates List</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </li>
 
                         <li class="has-submenu">

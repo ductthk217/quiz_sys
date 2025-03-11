@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,13 +17,21 @@
     <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/plugins/sweet-alert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/stylecandi.css') }}" rel="stylesheet" type="text/css">
+
     @stack('styles')
 </head>
+
 <body>
     <!-- Header -->
     @include('partials.header')
 
     <main>
+        @if (session('success'))
+            <script>
+                alert("{{ session('success') }}");
+            </script>
+        @endif
         @yield('content')
     </main>
 
@@ -45,4 +54,5 @@
     <script src="{{ asset('assets/js/sweetalert2.js') }}"></script>
     @stack('scripts')
 </body>
+
 </html>
