@@ -23,6 +23,7 @@ return new class extends Migration
             $table->float('pass_score')->default(0);
             $table->foreignId('created_by')->constrained('users')->onDelete('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

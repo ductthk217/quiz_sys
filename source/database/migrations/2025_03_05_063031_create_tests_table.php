@@ -19,6 +19,7 @@ return new class extends Migration
             $table->float('total_score')->nullable();
             $table->enum('status', ['pending', 'in_progress', 'completed', 'reviewed'])->default('pending');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

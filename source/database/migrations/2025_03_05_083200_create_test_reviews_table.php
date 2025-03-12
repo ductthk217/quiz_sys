@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('reviewed_by')->constrained('users')->onDelete('cascade');
             $table->float('score')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

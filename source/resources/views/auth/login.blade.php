@@ -12,25 +12,29 @@
 
             <div class="card-body">
                 <div class="text-center m-t-0 m-b-15">
-                    <a href="index.html" class="logo logo-admin"><img src="assets/images/logo-dark.png" alt=""
+                    <a href="index.html" class="logo logo-admin"><img src="{{ checkImage(WEB_LOGO) }}" alt=""
                             height="24"></a>
                 </div>
-                <h5 class="font-18 text-center">Sign in to continue to Stexo.</h5>
+                <h5 class="font-18 text-center">Sign in to continue to {{ WEB_NAME }}.</h5>
 
-                <form class="form-horizontal m-t-30" method="POST" action="{{ route('login') }}">
+                <form class="form-horizontal m-t-30" method="POST" action="{{ route('post-login') }}">
                     @csrf
 
                     <div class="form-group">
                         <div class="col-12">
                             <label>Username</label>
-                            <input class="form-control" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                            <x-text-input id="email" class="form-control" type="email" name="email" :value="old('email')" required
+                            autofocus autocomplete="username" />
+                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-12">
                             <label>Password</label>
-                            <input class="form-control" id="password" type="password" name="password" required autocomplete="current-password" />
+                            <x-text-input id="password" class="form-control" type="password" name="password" required
+                            autocomplete="current-password" />
+                            <x-input-error :messages="$errors->get('password')" class="mt-2" />
                         </div>
                     </div>
 
@@ -54,15 +58,13 @@
                     <div class="form-group row m-t-30 m-b-0">
                         <div class="col-sm-7">
                             @if (Route::has('password.request'))
-                            <a href="{{ route('password.request') }}" class="text-muted"><i class="fa fa-lock m-r-5"></i> {{ __('Forgot your password?') }}</a>
+                                <a href="{{ route('password.request') }}" class="text-muted"><i class="fa fa-lock m-r-5"></i> {{ __('Forgot your password?') }}</a>
                             @endif
-                        </div>
-                        <div class="col-sm-5 text-right">
-                            <a href="pages-register.html" class="text-muted">Create an account</a>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+    
 @endsection

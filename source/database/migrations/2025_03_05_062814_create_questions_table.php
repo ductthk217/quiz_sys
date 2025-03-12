@@ -16,10 +16,11 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained('question_categories')->onDelete('cascade');
             $table->text('content');
             $table->float('score')->default(1);
-            $table->enum('type', ['choice', 'essay']);
+            $table->enum('type', ['choice', 'essay'])->default('choice');
+            $table->enum('status', ['draft', 'public', 'cancel'])->default('draft');
             $table->foreignId('created_by')->constrained('users')->onDelete('cascade');
             $table->timestamps();
-
+            $table->softDeletes();
         });
     }
 

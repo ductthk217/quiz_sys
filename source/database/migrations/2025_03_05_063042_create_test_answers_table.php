@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('answer_order', 10)->nullable()->comment('Order of answers in questions');
             $table->text('answer_essay')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
