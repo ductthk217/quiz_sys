@@ -15,5 +15,15 @@ return [
     'update_password' => 'Cập nhật mật khẩu',
     'update_password_message' => 'Đảm bảo tài khoản của bạn đang sử dụng mật khẩu dài, ngẫu nhiên để bảo mật.',
     'forgot_password_message' => 'Không sao cả. Hãy cho chúng tôi biết địa chỉ email của bạn, và chúng tôi sẽ gửi một liên kết đặt lại mật khẩu để bạn có thể chọn mật khẩu mới.',
-
+    'account_manage' => 'Quản lý tài khoản',
+    'exam_manage' => 'Quản lý đề',
+    'submission_manage' => 'Quản lý bài làm',
+    'system_settings' => 'Cài đặt hệ thống',
+    'candidates' => 'Ứng viên',
+    'list' => 'Danh sách',
+    'question_categories' => 'Danh mục câu hỏi',
+    'questions' => 'Câu hỏi',
+    'tests' => 'Bài kiểm tra',
+    'submissions' => 'Danh sách bài làm',
+    'create' => 'Tạo mới',
 ];

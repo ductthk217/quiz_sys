@@ -16,8 +16,8 @@
     <link href="{{ asset('assets/css/metismenu.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('assets/plugins/sweet-alert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css">
     @stack('styles')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
     <!-- Header -->
@@ -29,6 +29,33 @@
 
     <!-- Footer -->
     @include('partials.footer')
+
+    <!-- SweetAlert2 -->
+    @if (session('success'))
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Thành công!',
+                    text: '{{ session('success') }}',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+            });
+        </script>
+    @endif
+    @if (session('error'))
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Lỗi!',
+                    text: '{{ session('error') }}',
+                    showConfirmButton: true,
+                });
+            });
+        </script>
+    @endif
 
     <!-- Scripts -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
@@ -42,8 +69,6 @@
     <script src="{{ asset('assets/raphael/raphael.min.js') }}"></script>
     <script src="{{ asset('assets/pages/dashboard.init.js') }}"></script>
     <script src="{{ asset('assets/js/app.js') }}"></script>
-    <script src="{{ asset('assets/plugins/sweet-alert2/sweetalert2.min.js') }}"></script>
-    <script src="{{ asset('assets/js/sweetalert2.js') }}"></script>
     @stack('scripts')
 </body>
 </html>
