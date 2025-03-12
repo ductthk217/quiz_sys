@@ -32,6 +32,16 @@ class QuestionService
         }
     }
 
+    public function updateQuestion($id, array $data): ?Question
+    {
+        try {
+            return $this->questionRepository->update($id, $data);
+        } catch (Exception $e) {
+            Log::error('Error: ' . $e->getMessage());
+            return null;
+        }
+    }
+
     public function getCategoryQuestion()
     {
         try {
@@ -39,6 +49,16 @@ class QuestionService
         } catch (Exception $e) {
             Log::error('Error: ' . $e->getMessage());
             return [];
+        }
+    }
+
+    public function getQuestionById(int $id): ?Question
+    {
+        try {
+            return $this->questionRepository->find($id);
+        } catch (Exception $e) {
+            Log::error('Error: ' . $e->getMessage());
+            return null;
         }
     }
 }

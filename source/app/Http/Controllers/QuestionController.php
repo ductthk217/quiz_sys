@@ -19,13 +19,23 @@ class QuestionController extends BaseController
         return view('questions.create', compact('categories'));
     }
 
-    /**
-     * Process new Question creation
-     */
     public function store(StoreQuestionRequest $request)
     {
         Log::info('Store question start', ['data' => $request->validated()]);
         $this->questionService->createQuestion($request->validated());
-        return redirect()->route('question.create')->with('success', 'Câu hỏi đã được tạo thành công!');
+        return redirect()->route('questions.create')->with('success', 'Câu hỏi đã được tạo thành công!');
+    }
+
+    public function edit($id)
+    {
+        $question = $this->questionService->getQuestionById($id);
+        $categories = $this->questionService->getCategoryQuestion();
+        return view('questions.edit', compact('question', 'categories'));
+    }
+
+    public function update(StoreQuestionRequest $request, $id)
+    {
+        $this->questionService->updateQuestion($id, $request->validated());
+        return redirect()->route('questions.create')->with('success', 'Cập nhật câu hỏi thành công!');
     }
 }

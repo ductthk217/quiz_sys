@@ -15,11 +15,12 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
     // Question
-    Route::post('/question', [QuestionController::class, 'store'])->name('question.store');
-    Route::get('/question/create', [QuestionController::class, 'create'])->name('question.create');
+    Route::post('/questions', [QuestionController::class, 'store'])->name('questions.store');
+    Route::get('/questions/create', [QuestionController::class, 'create'])->name('questions.create');
+    Route::get('/questions/{id}/edit', [QuestionController::class, 'edit'])->name('questions.edit');
+    Route::put('/questions/{id}', [QuestionController::class, 'update'])->name('questions.update');
 
-
-    Route::get('/profile/{user}', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });

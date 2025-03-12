@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\DB;
 
 class QuestionRepository extends BaseRepository implements QuestionRepositoryInterface
 {
-    public function getModel()
+    public function __construct(Question $model)
     {
-        return Question::class;
+        parent::__construct($model);
     }
 
     public function getCategoryQuestion()
