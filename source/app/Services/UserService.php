@@ -34,7 +34,6 @@ class UserService
             return $this->userRepository->update($user->id, $data);
         } catch (\Exception $e) {
             Log::error("Lỗi khi cập nhật hồ sơ: " . $e->getMessage());
-    
             return false;
         }
     }

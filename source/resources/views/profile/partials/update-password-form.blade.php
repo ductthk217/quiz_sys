@@ -1,8 +1,8 @@
 <section>
     <header>
-        <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+        <h1 class="text-lg font-medium">
             {{ __('messages.update_password') }}
-        </h2>
+        </h1>
 
         <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
             {{ __('messages.update_password_message') }}
@@ -17,7 +17,7 @@
                 class="col-sm-12 col-form-label">{{ __('title.password') }}</label>
             <div class="col-sm-7">
                 <input id="update_password_current_password" name="update_password_current_password" type="password"
-                    class="form-control mt-1 block w-full" autocomplete="current-password">
+                    class="form-control mt-1 w-full" autocomplete="current-password">
                     <span id="error-current_password" class="mt-2 error-span" ></span>
             </div>
         </div>
@@ -26,7 +26,7 @@
             <label for="update_password_password" class="col-sm-12 col-form-label">{{ __('title.new_password') }}</label>
             <div class="col-sm-7">
                 <input id="update_password_password" name="update_password_password" type="password"
-                    class="form-control mt-1 block w-full" autocomplete="new-password">
+                    class="form-control mt-1 w-full" autocomplete="new-password">
                     <span id="error-new_password" class="mt-2 error-span" ></span>
 
             </div>
@@ -37,7 +37,7 @@
                 class="col-sm-12 col-form-label">{{ __('title.confirm_password') }}</label>
             <div class="col-sm-7">
                 <input id="update_password_password_confirmation" name="update_password_password_confirmation"
-                    type="password" class="form-control mt-1 block w-full" autocomplete="new-password">
+                    type="password" class="form-control mt-1 w-full" autocomplete="new-password">
                     <span id="error-new_password_confirmation" class="mt-2 error-span" ></span>
 
             </div>

@@ -1,8 +1,8 @@
 <section>
     <header>
-        <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+        <h1 class="text-lg font-medium">
             {{ __('messages.profile_info') }}
-        </h2>
+        </h1>
 
         <p class="sub-title">
             {{ __("messages.profile_update_message") }}
@@ -19,7 +19,7 @@
         <div class="form-group row">
             <label for="name" class="col-sm-12 col-form-label">{{ __('title.name') }}</label>
             <div class="col-sm-7">
-                <input id="name" name="name" type="text" class="form-control mt-1 block w-full" autocomplete="name"  value="{{ old('name', $user->name) }}">
+                <input id="name" name="name" type="text" class="form-control mt-1 w-full" autocomplete="name"  value="{{ old('name', $user->name) }}">
                 <span id="error-name" class="mt-2 error-span" ></span>
             </div>
         </div>
@@ -28,7 +28,7 @@
             <div class="form-group row">
                 <label for="email" class="col-sm-12 col-form-label">Email</label>
                 <div class="col-sm-7">
-                    <input id="email" name="email" type="email" class="form-control mt-1 block w-full" autocomplete="username" value="{{ old('email', $user->email) }}">
+                    <input id="email" name="email" type="email" class="form-control mt-1 w-full" autocomplete="username" value="{{ old('email', $user->email) }}">
                     <span id="error-email" class="mt-2 error-span" ></span>
                 </div>
             </div>
