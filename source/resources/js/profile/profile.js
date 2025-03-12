@@ -1,5 +1,4 @@
 async function updateProfile(e) {
-    
     e.preventDefault();
     let data = {
         name: $('#name').val(),
@@ -11,7 +10,7 @@ async function updateProfile(e) {
     try {
         let result = await sendRequest(`${window.location.origin}/profile`, 'PATCH', data);
         showNotification({
-            icon: 'success',
+            type: 'success',
             title: 'Thành công',
             text: result.message || 'Cập nhật thành công!',
         });
@@ -23,7 +22,7 @@ async function updateProfile(e) {
             });
         } else {
             showNotification({
-                icon: 'error',
+                type: 'error',
                 title: 'Lỗi',
                 text: error.message?.text || 'Có lỗi xảy ra, vui lòng thử lại.',
             });
@@ -58,7 +57,7 @@ async function updatePassword(e) {
         $('#update_password_password_confirmation').val('');
 
         showNotification({
-            icon: 'success',
+            type: 'success',
             title: 'Thành công',
             text: result.message || 'Mật khẩu đã được cập nhật!',
         });
@@ -70,7 +69,7 @@ async function updatePassword(e) {
             });
         } else {
             showNotification({
-                icon: 'error',
+                type: 'error',
                 title: 'Lỗi',
                 text: error.message?.text || 'Có lỗi xảy ra, vui lòng thử lại.',
             });

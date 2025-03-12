@@ -69,6 +69,7 @@
     <script src="{{ asset('assets/raphael/raphael.min.js') }}"></script>
     <script src="{{ asset('assets/pages/dashboard.init.js') }}"></script>
     <script src="{{ asset('assets/js/app.js') }}"></script>
+    <script src="{{ asset('assets/js/sweetalert2.js') }}"></script>
     @stack('scripts')
 </body>
 </html>

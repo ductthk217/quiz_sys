@@ -15,5 +15,4 @@ return [
     'update_password' => 'Update Password',
     'update_password_message' => 'Ensure your account is using a long, random password to stay secure.',
     'forgot_password_message' => 'No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.',
-
 ];

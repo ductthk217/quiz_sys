@@ -10,7 +10,7 @@ function showNotification(event) {
         position: "top-end",
         title: event.title,
         text: event.message,
-        type: event.type,
+        icon: event.icon,
         timer: 900,
         showConfirmButton: false,
     });
@@ -44,7 +44,7 @@ function showNotificationConfirm(event, call) {
 
     Swal.fire({
         title: event.title ?? "Thông báo",
-        type: event.icon ?? "error",
+        icon: event.icon ?? "error",
         text: event.text ?? "Có lỗi xảy ra",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",

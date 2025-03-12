@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Services\UserService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -12,6 +13,12 @@ use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
+    protected UserService $userService;
+
+    public function __construct(UserService $userService) {
+        $this->userService = $userService;
+    }
+
     /**
      * Display the user's profile form.
      */
@@ -27,18 +34,19 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): JsonResponse
     {
-        $request->user()->fill($request->validated());
+        $updated = $this->userService->updateProfile($request->user(), $request->validated());
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        if (!$updated) {
+            return response()->json([
+                "status" => 400,
+                "message" => "Cập nhật thất bại. Vui lòng thử lại sau!"
+            ], 400);
         }
-
-        $request->user()->save();
+    
         return response()->json([
             "status" => 200,
-            'message' => 'Cập nhật thành công.'
+            "message" => "Cập nhật thành công."
         ]);
-        // return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
 
     /**
