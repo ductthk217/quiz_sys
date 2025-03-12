@@ -22,18 +22,22 @@
 
                     <div class="form-group">
                         <div class="col-12">
-                            <label>Username</label>
+                            <label>{{ __('title.username') }}</label>
                             <x-text-input id="email" class="form-control" type="email" name="email" :value="old('email')" required
                             autofocus autocomplete="username" />
-                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-12">
-                            <label>Password</label>
+                            <label>{{ __('title.password') }}</label>
                             <x-text-input id="password" class="form-control" type="password" name="password" required
                             autocomplete="current-password" />
+                        </div>
+                    </div>
+                    <div class="form-group error-box">
+                        <div class="col-12">
+                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
                             <x-input-error :messages="$errors->get('password')" class="mt-2" />
                         </div>
                     </div>
@@ -43,7 +47,7 @@
                             <div class="checkbox checkbox-primary">
                                 <div class="custom-control custom-checkbox">
                                     <input class="custom-control-input" id="remember_me" type="checkbox" name="remember">
-                                    <label class="custom-control-label" for="remember_me"> Remember me</label>
+                                    <label class="custom-control-label" for="remember_me"> {{ __('title.remember_me') }}</label>
                                 </div>
                             </div>
                         </div>
@@ -51,14 +55,14 @@
 
                     <div class="form-group text-center m-t-20">
                         <div class="col-12">
-                            <button class="btn btn-primary btn-block btn-lg waves-effect waves-light" type="submit">{{ __('Login') }}</button>
+                            <button class="btn btn-primary btn-block btn-lg waves-effect waves-light" type="submit">{{ __('title.login') }}</button>
                         </div>
                     </div>
 
                     <div class="form-group row m-t-30 m-b-0">
                         <div class="col-sm-7">
                             @if (Route::has('password.request'))
-                                <a href="{{ route('password.request') }}" class="text-muted"><i class="fa fa-lock m-r-5"></i> {{ __('Forgot your password?') }}</a>
+                                <a href="{{ route('password.request') }}" class="text-muted"><i class="fa fa-lock m-r-5"></i> {{ __('messages.forgot_password') }}</a>
                             @endif
                         </div>
                     </div>

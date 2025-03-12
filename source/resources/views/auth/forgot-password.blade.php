@@ -14,8 +14,8 @@
                     <a href="index.html" class="logo logo-admin"><img src="{{ checkImage(WEB_LOGO) }}" alt=""
                             height="24"></a>
                 </div>
-                <h5 class="font-18 text-center">Quên mật khẩu</h5>
-                <p>{{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}                </p>
+                <h5 class="font-18 text-center">{{ __('messages.forgot_password') }}</h5>
+                <p>{{ __('messages.forgot_password_message') }}                </p>
                 <x-auth-session-status class="mb-4" :status="session('status')" />
 
                 <form class="form-horizontal m-t-30" method="POST" action="{{ route('password.email') }}">
@@ -23,7 +23,7 @@
 
                     <div class="form-group">
                         <div class="col-12">
-                            <label>Username</label>
+                            <label>{{ __('title.username') }}</label>
                             <x-text-input id="email" class="form-control" type="email" name="email" :value="old('email')" required autofocus 
                             autofocus autocomplete="username" />
                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
@@ -36,7 +36,7 @@
                         </div>
                     </div>
 
-                    <a href="{{ route('login') }}" class="text-muted"><i class="fas fa-sign-in-alt m-r-5"></i> {{ __('Login?') }}</a>
+                    <a href="{{ route('login') }}" class="text-muted"><i class="fas fa-sign-in-alt m-r-5"></i> {{ __('title.login') }}</a>
 
                 </form>
             </div>

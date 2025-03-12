@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'home' => 'Home',
+    'about' => 'About',
+    'contact' => 'Contact',
+    'login' => 'Login',
+    'logout' => 'Logout',
+    'register' => 'Register',
+    'profile' => 'Profile',
+    'name' => 'Name',
+    'phone' => 'Phone Number',
+    'address' => 'Address',
+    'password' => 'Password',
+    'new_password' => 'New Password',
+    'confirm_password' => 'Confirm Password',
+    'update' => 'Update',
+    'create' => 'Create',
+    'delete' => 'Delete',
+    'edit' => 'Edit',
+    'saved' => 'Saved',
+    'search' => 'Search',
+    'cancel' => 'Cancel',
+    'settings' => 'Settings',
+    'remember_me' => 'Remember Me',
+    'username' => 'Username',
+];

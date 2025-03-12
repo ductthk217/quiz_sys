@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'home' => 'Trang chủ',
+    'about' => 'Giới thiệu',
+    'contact' => 'Liên hệ',
+    'login' => 'Đăng nhập',
+    'logout' => 'Đăng xuất',
+    'register' => 'Đăng ký',
+    'profile' => 'Trang cá nhân',
+    'name' => 'Tên',
+    'phone' => 'Số điện thoại',
+    'address' => 'Địa chỉ',
+    'password' => 'Mật khẩu',
+    'new_password' => 'Mật khẩu mới',
+    'confirm_password' => 'Nhập lại mật khẩu',
+    'update' => 'Cập nhật',
+    'create' => 'Tạo mới',
+    'delete' => 'Xóa',
+    'edit' => 'Sửa',
+    'saved' => 'Đã lưu',
+    'search' => 'Tìm kiếm',
+    'cancel' => 'Hủy',
+    'settings' => 'Cài đặt',
+    'remember_me' => 'Ghi nhớ tài khoản',
+    'username' => 'Tài khoản',
+];

@@ -9,12 +9,12 @@
             <div class="page-title-box">
                 <div class="row align-items-center">
                     <div class="col-sm-6">
-                        <h4 class="page-title">{{ __('Profile') }}</h4>
+                        <h4 class="page-title">{{ __('title.profile') }}</h4>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-right">
                             <li class="breadcrumb-item"><a href="javascript:void(0);">{{ WEB_NAME}}</a></li>
-                            <li class="breadcrumb-item active">{{ __('Profile') }}</li>
+                            <li class="breadcrumb-item active">{{ __('title.profile') }}</li>
                         </ol>
                     </div>
                 </div>

@@ -1,11 +1,11 @@
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-            {{ __('messages.Profile Information') }}
+            {{ __('messages.profile_info') }}
         </h2>
 
         <p class="sub-title">
-            {{ __("Update your account's profile information and email address.") }}
+            {{ __("messages.profile_update_message") }}
         </p>
     </header>
 
@@ -17,7 +17,7 @@
         @csrf
         @method('patch')
         <div class="form-group row">
-            <label for="name" class="col-sm-12 col-form-label">{{ __('Name') }}</label>
+            <label for="name" class="col-sm-12 col-form-label">{{ __('title.name') }}</label>
             <div class="col-sm-7">
                 <input id="name" name="name" type="text" class="form-control mt-1 block w-full" autocomplete="name"  value="{{ old('name', $user->name) }}">
                 <span id="error-name" class="mt-2 error-span" ></span>
@@ -26,7 +26,7 @@
 
         <div>
             <div class="form-group row">
-                <label for="email" class="col-sm-12 col-form-label">{{ __('Email') }}</label>
+                <label for="email" class="col-sm-12 col-form-label">Email</label>
                 <div class="col-sm-7">
                     <input id="email" name="email" type="email" class="form-control mt-1 block w-full" autocomplete="username" value="{{ old('email', $user->email) }}">
                     <span id="error-email" class="mt-2 error-span" ></span>
@@ -62,7 +62,7 @@
                     x-transition
                     x-init="setTimeout(() => show = false, 2000)"
                     class="text-sm text-dark-600 dark:text-dark-400 text-dark"
-                >{{ __('Saved.') }}</p>
+                >{{ __('messages.saved') }}</p>
             @endif
         </div>
     </form>

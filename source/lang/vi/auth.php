@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'Xác thực không thành công.',
+    'failed' => 'Xác thực không thành công. Vui lòng nhập lại thông tin.',
     'password' => 'Mật khẩu cung cấp không chính xác.',
     'throttle' => 'Quá nhiều yêu cầu. Vui lòng thử lại sau.',
 ];

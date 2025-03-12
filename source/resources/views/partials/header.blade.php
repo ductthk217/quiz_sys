@@ -6,9 +6,9 @@
 
                 <!-- Logo-->
                 <div>
-                    <a href="index.html" class="logo">
+                    <a href="{{ route('dashboard') }}" class="logo">
                         <span class="logo-light">
-                                <i class="mdi mdi-camera-control"></i> Stexo
+                                <i class="mdi mdi-camera-control"></i> {{ WEB_NAME }}
                         </span>
                     </a>
                 </div>
@@ -105,11 +105,10 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                     <!-- item-->
-                                    <a class="dropdown-item" href="{{ route('profile.edit') }}"><i class="mdi mdi-account-circle"></i> Profile</a>
-                                    <a class="dropdown-item d-block" href="#"><span class="badge badge-success float-right">11</span><i class="mdi mdi-settings"></i> Settings</a>
-                                    <a class="dropdown-item" href="#"><i class="mdi mdi-lock-open-outline"></i> Lock screen</a>
+                                    <a class="dropdown-item" href="{{ route('profile.edit') }}"><i class="mdi mdi-account-circle"></i> {{ __('title.profile') }}</a>
+                                    <a class="dropdown-item d-block" href="#"><i class="mdi mdi-settings"></i>{{ __('title.settings') }}</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item text-danger" href="{{ route('logout') }}"><i class="mdi mdi-power text-danger"></i> Logout</a>
+                                    <a class="dropdown-item text-danger" href="{{ route('logout') }}"><i class="mdi mdi-power text-danger"></i>{{ __('title.logout') }}</a>
 
                                 </div>
                             </div>
