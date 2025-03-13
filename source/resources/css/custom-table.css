@@ -1,0 +1,39 @@
+table.dataTable thead {
+    background-color: #30419b;
+}
+
+table.dataTable thead th {
+    text-align: left !important;
+    vertical-align: middle !important;
+    font-weight: 600;
+}
+
+table.dataTable thead .dt-column-title,
+table.dataTable thead .dt-column-order {
+    color: #ffffff;
+}
+
+table.dataTable tbody .dt-type-numeric {
+    text-align: center;
+}
+
+.question-status {
+    color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    width: 86px;
+    text-align: center;
+}
+
+.question-status-public {
+    background-color: #007bff;
+}
+
+.question-status-draft {
+    background-color: #ffc107;
+}
+
+.question-status-cancel {
+    background-color: #777777;
+}

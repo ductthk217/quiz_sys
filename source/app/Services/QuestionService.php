@@ -22,7 +22,7 @@ class QuestionService
      * @param array $data
      * @return Question
      */
-    public function createQuestion(array $data): ?Question
+    public function createQuestion(array $data)
     {
         try {
             return $this->questionRepository->create($data);
@@ -32,7 +32,7 @@ class QuestionService
         }
     }
 
-    public function updateQuestion($id, array $data): ?Question
+    public function updateQuestion($id, array $data)
     {
         try {
             return $this->questionRepository->update($id, $data);
@@ -52,10 +52,20 @@ class QuestionService
         }
     }
 
-    public function getQuestionById(int $id): ?Question
+    public function getQuestionById(int $id)
     {
         try {
             return $this->questionRepository->find($id);
+        } catch (Exception $e) {
+            Log::error('Error: ' . $e->getMessage());
+            return null;
+        }
+    }
+
+    public function deleteQuestion(int $id)
+    {
+        try {
+            return $this->questionRepository->delete($id);
         } catch (Exception $e) {
             Log::error('Error: ' . $e->getMessage());
             return null;
