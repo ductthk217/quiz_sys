@@ -26,4 +26,8 @@ return [
     'tests' => 'Bài kiểm tra',
     'submissions' => 'Danh sách bài làm',
     'create' => 'Tạo mới',
+    'unverified_message' => 'Địa chỉ email của bạn chưa được xác minh.',
+    'button_verified_message' => 'Nhấn vào đây để gửi lại email xác minh.',
+    'sent_verified_message' => 'Một liên kết xác minh mới đã được gửi đến địa chỉ email của bạn.',
+
 ];

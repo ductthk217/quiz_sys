@@ -15,6 +15,7 @@ function showNotification(event) {
         showConfirmButton: false,
     });
 }
+
 function showNotificationNoIcon(message) {
     Swal.fire({
         position: "top-end",
@@ -23,6 +24,7 @@ function showNotificationNoIcon(message) {
         showConfirmButton: false,
     });
 }
+
 function showNotificationDelete(event) {
     Swal.fire({
         title: "Thông báo",
@@ -39,6 +41,7 @@ function showNotificationDelete(event) {
         }
     });
 }
+
 function showNotificationConfirm(event, call) {
     if (!event || typeof event !== "object") event = {};
 

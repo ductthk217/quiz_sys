@@ -22,8 +22,8 @@ class UpdatePasswordUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'current_password' => 'required|string|min:8|current_password',
-            'new_password'     => 'required|string|min:8|confirmed',
+            'update_password_current_password' => 'required|string|min:8|current_password',
+            'update_password_password'     => 'required|string|min:8|confirmed',
         ];
     }
     
@@ -33,13 +33,13 @@ class UpdatePasswordUserRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'current_password.required' => 'Mật khẩu hiện tại không được để trống.',
-            'current_password.min'      => 'Mật khẩu hiện tại phải có ít nhất 8 ký tự.',
-            'current_password.current_password' => 'Mật khẩu hiện tại không chính xác.',
+            'update_password_current_password.required' => 'Mật khẩu hiện tại không được để trống.',
+            'update_password_current_password.min'      => 'Mật khẩu hiện tại phải có ít nhất 8 ký tự.',
+            'update_password_current_password.current_password' => 'Mật khẩu hiện tại không chính xác.',
     
-            'new_password.required' => 'Mật khẩu mới không được để trống.',
-            'new_password.min'      => 'Mật khẩu mới phải có ít nhất 8 ký tự.',
-            'new_password.confirmed'=> 'Mật khẩu nhập lại không khớp.',
+            'update_password_password.required' => 'Mật khẩu mới không được để trống.',
+            'update_password_password.min'      => 'Mật khẩu mới phải có ít nhất 8 ký tự.',
+            'update_password_password.confirmed'=> 'Mật khẩu nhập lại không khớp.',
         ];
     }
     

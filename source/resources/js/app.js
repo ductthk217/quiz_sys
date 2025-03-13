@@ -1,4 +1,5 @@
 import './bootstrap';
+import './sweetalert2_custom';
 
 import Alpine from 'alpinejs';
 

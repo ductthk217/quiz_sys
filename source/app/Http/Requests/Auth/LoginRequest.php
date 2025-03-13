@@ -33,6 +33,19 @@ class LoginRequest extends FormRequest
     }
 
     /**
+     * Customize error messages
+     */
+    public function messages(): array
+    {
+        return [
+            'email.required' => 'Mật khẩu hiện tại không được để trống.',
+            'email.email'      => 'Mật khẩu hiện tại phải có ít nhất 8 ký tự.',
+    
+            'password.required' => 'Mật khẩu không được để trống.',
+        ];
+    }
+
+    /**
      * Attempt to authenticate the request's credentials.
      *
      * @throws \Illuminate\Validation\ValidationException
@@ -45,7 +58,7 @@ class LoginRequest extends FormRequest
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
+                'password' => trans('auth.failed'),
             ]);
         }
 

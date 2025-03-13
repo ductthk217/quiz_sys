@@ -5,10 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\UpdatePasswordUserRequest;
 use App\Services\UserService;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 
 class PasswordController extends Controller
@@ -23,15 +21,11 @@ class PasswordController extends Controller
     /**
      * Update the user's password.
      */
-    public function update(UpdatePasswordUserRequest $request): JsonResponse
+    public function update(UpdatePasswordUserRequest $request): RedirectResponse
     {
         $validated = $request->validated();
-        dd($request->user());
-        $this->userService->changePassword($request->user(), $validated['new_password']);
-    
-        return response()->json([
-            "status" => 200,
-            'message' => 'Cập nhật thành công.'
-        ]);
+        $this->userService->changePassword($request->user(), $validated['update_password_password']);
+
+        return back()->with('status', 'password-updated');
     }
 }

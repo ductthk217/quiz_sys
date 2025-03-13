@@ -19,6 +19,7 @@ return [
     'delete' => 'Delete',
     'edit' => 'Edit',
     'saved' => 'Saved',
+    'save' => 'Save',
     'search' => 'Search',
     'cancel' => 'Cancel',
     'settings' => 'Settings',

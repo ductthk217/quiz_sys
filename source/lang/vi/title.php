@@ -19,6 +19,7 @@ return [
     'delete' => 'Xóa',
     'edit' => 'Sửa',
     'saved' => 'Đã lưu',
+    'save' => 'Lưu',
     'search' => 'Tìm kiếm',
     'cancel' => 'Hủy',
     'settings' => 'Cài đặt',

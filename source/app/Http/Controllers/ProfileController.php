@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProfileUpdateRequest;
+use App\Http\Requests\User\ProfileUpdateRequest;
 use App\Services\UserService;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -32,21 +31,11 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): JsonResponse
+    public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $updated = $this->userService->updateProfile($request->user(), $request->validated());
+        $this->userService->updateProfile($request->user(), $request->validated());
 
-        if (!$updated) {
-            return response()->json([
-                "status" => 400,
-                "message" => "Cập nhật thất bại. Vui lòng thử lại sau!"
-            ], 400);
-        }
-    
-        return response()->json([
-            "status" => 200,
-            "message" => "Cập nhật thành công."
-        ]);
+        return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
 
     /**

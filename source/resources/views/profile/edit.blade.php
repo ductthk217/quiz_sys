@@ -23,13 +23,13 @@
 
             <div class="p-3">
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-                    <div class="p-4 rounded my-5 shadow block ">
+                    <div class="p-4 rounded my-5 shadow block-feature ">
                         <div class="max-w-xl">
                             @include('profile.partials.update-profile-information-form')
                         </div>
                     </div>
-        
-                    <div class="p-4 rounded my-5 shadow block ">
+
+                    <div class="p-4 rounded my-5 shadow block-feature ">
                         <div class="max-w-xl">
                             @include('profile.partials.update-password-form')
                         </div>
@@ -42,26 +42,21 @@
     </div>
 @endsection
 @push('styles')
-<style>
-    .block{
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    }
-    input.form-control{
-        border:1px solid rgba(103, 103, 103, 0.23);
-        padding: .5rem .75rem;
-        font-size: 1rem;
-        line-height: 1.5rem;
-        border-radius: 8px
-    }
-    input.form-control:focus{
-        border:1px solid rgb(6, 32, 109);
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    <style>
+        .block-feature{
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        }
+        input.form-control{
+            border:1px solid rgba(103, 103, 103, 0.23);
+            padding: .5rem .75rem;
+            font-size: 1rem;
+            line-height: 1.5rem;
+            border-radius: 8px
+        }
+        input.form-control:focus{
+            border:1px solid rgb(6, 32, 109);
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 
-    }
-</style>
-
-@endpush
-@push('scripts')
-    <script src="{{ asset('assets/js/ajax-contants.js') }}"></script>
-    <script src="{{ asset('assets/js/profile/profile.js') }}"></script>
+        }
+    </style>
 @endpush

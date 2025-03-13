@@ -22,23 +22,15 @@
 
                     <div class="form-group">
                         <div class="col-12">
-                            <label>{{ __('title.username') }}</label>
-                            <x-text-input id="email" class="form-control" type="email" name="email" :value="old('email')" required
-                            autofocus autocomplete="username" />
+                            <x-input-label for="email" :value="__('title.username')" class="col-sm-12 col-form-label"/>
+                            <x-form.input id="email" name="email" type="email" class="form-control mt-1 w-full" autofocus autocomplete="email" value="{{ old('email') }}"/>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-12">
-                            <label>{{ __('title.password') }}</label>
-                            <x-text-input id="password" class="form-control" type="password" name="password" required
-                            autocomplete="current-password" />
-                        </div>
-                    </div>
-                    <div class="form-group error-box">
-                        <div class="col-12">
-                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                            <x-input-label for="password" :value="__('title.password')" class="col-sm-12 col-form-label"/>
+                            <x-form.input id="password" name="password" type="password" class="form-control mt-1 w-full" autofocus autocomplete="password" required/>
                         </div>
                     </div>
 
